@@ -21,7 +21,7 @@ const catalog = new Map([
 app.post("/create-checkout-session", async (req, res) => {
     try {
         // create a checkout session with stripe
-        const session = await stripe.checkout.session.create({
+        const session = await stripe.checkout.sessions.create({
             payment_method_types: ["card"],
             line_items: req.body.items.map(({ id, quantity }) => {
                 const item = catalog.get(id)
