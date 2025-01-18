@@ -16,17 +16,20 @@ checkoutBtn.addEventListener("click", checkout)
 // ⬇️ EVENT HANDLERS ⬇️
 
 function itemCount(id, operation) {
+    const selectedItemQty = document.getElementById(`qty-${id}`)
     let selectedItem = inventory.filter(function(inventoryItem) {
         return inventoryItem.id === id
     })
 
     if (operation === "add") {
         selectedItem[0].count = selectedItem[0].count + 1
+        selectedItemQty.textContent = selectedItem[0].count
     } else {
         selectedItem[0].count = selectedItem[0].count - 1
         if (selectedItem[0].count < 0) {
             selectedItem[0].count = 0
         }
+        selectedItemQty.textContent = selectedItem[0].count
     }
 
     console.log(id)
