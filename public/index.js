@@ -1,5 +1,14 @@
 const checkoutBtn = document.querySelector("#checkoutBtn")
 
+const inventory = [
+    { price: 100, name: "One hundred" },
+    { price: 150, name: "One hundred fifty" },
+    { price: 200, name: "Two hundred" },
+    { price: 250, name: "Tne hundred fifty" },
+    { price: 300, name: "Three hundred" },
+    { price: 350, name: "Three hundred fifty"} ,
+]
+
 // ⬇️ EVENT LISTENERS ⬇️
 
 checkoutBtn.addEventListener("click", checkout)

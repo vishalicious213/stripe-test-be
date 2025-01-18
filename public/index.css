@@ -1,0 +1,12 @@
+.item {
+    outline: 1px solid red;
+}
+
+.controls {
+    display: flex;
+}
+
+.controls button {
+    margin: .5rem;
+    width: 2rem;
+}
