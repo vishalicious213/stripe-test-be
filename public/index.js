@@ -1,12 +1,12 @@
 const checkoutBtn = document.querySelector("#checkoutBtn")
 
 const inventory = [
-    { id: 1, price: 100, name: "One hundred" },
-    { id: 2, price: 150, name: "One hundred fifty" },
-    { id: 3, price: 200, name: "Two hundred" },
-    { id: 4, price: 250, name: "Two hundred fifty" },
-    { id: 5, price: 300, name: "Three hundred" },
-    { id: 6, price: 350, name: "Three hundred fifty"},
+    { id: 1, price: 100, count: 0, name: "One hundred" },
+    { id: 2, price: 150, count: 0, name: "One hundred fifty" },
+    { id: 3, price: 200, count: 0, name: "Two hundred" },
+    { id: 4, price: 250, count: 0, name: "Two hundred fifty" },
+    { id: 5, price: 300, count: 0, name: "Three hundred" },
+    { id: 6, price: 350, count: 0, name: "Three hundred fifty"},
 ]
 
 // ⬇️ EVENT LISTENERS ⬇️
@@ -14,6 +14,13 @@ const inventory = [
 checkoutBtn.addEventListener("click", checkout)
 
 // ⬇️ EVENT HANDLERS ⬇️
+
+function itemCount(id) {
+    let selectedItem = inventory.filter(function(inventoryItem) {
+        return inventoryItem.id === id
+    })
+    console.log(id, selectedItem)
+}
 
 function checkout() {
     console.log("Checkout")
@@ -52,8 +59,8 @@ function renderCatalog() {
                     <p class="price">$${item.price}</p>
                 </div>
                 <div class="controls">
-                    <button id="add-${item.id}">+</button>
-                    <p id="qty-${item.id}" class="quantity">0</p>
+                    <button id="add-${item.id}" onclick={itemCount(${item.id})}>+</button>
+                    <p id="qty-${item.id}" class="quantity">${item.count}</p>
                     <button id="sub-${item.id}">-</button>
                 </div>
             </section>
