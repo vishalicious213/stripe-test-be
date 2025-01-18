@@ -4,7 +4,7 @@ const inventory = [
     { price: 100, name: "One hundred" },
     { price: 150, name: "One hundred fifty" },
     { price: 200, name: "Two hundred" },
-    { price: 250, name: "Tne hundred fifty" },
+    { price: 250, name: "Two hundred fifty" },
     { price: 300, name: "Three hundred" },
     { price: 350, name: "Three hundred fifty"} ,
 ]
@@ -47,8 +47,10 @@ function renderCatalog() {
     inventory.forEach(item => {
         catalog += `
             <section class="item">
-                <h2>${item.name}</h2>
-                <p class="price">$${item.price}</p>
+                <div>
+                    <h2>${item.name}</h2>
+                    <p class="price">$${item.price}</p>
+                </div>
                 <div class="controls">
                     <button>+</button>
                     <p class="quantity">0</p>

@@ -12,7 +12,7 @@ const catalog = new Map([
     [1, { priceInCents: 10000, name: "One hundred"}],
     [2, { priceInCents: 15000, name: "One hundred fifty"}],
     [3, { priceInCents: 20000, name: "Two hundred"}],
-    [4, { priceInCents: 25000, name: "Tne hundred fifty"}],
+    [4, { priceInCents: 25000, name: "Two hundred fifty"}],
     [5, { priceInCents: 30000, name: "Three hundred"}],
     [6, { priceInCents: 35000, name: "Three hundred fifty"}],
 ])
