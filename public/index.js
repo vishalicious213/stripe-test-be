@@ -38,3 +38,27 @@ function checkout() {
         console.error(e.error)
     })
 }
+
+// ⬇️ RENDER FUNCTIONS ⬇️
+
+function renderCatalog() {
+    let catalog = ``
+
+    inventory.forEach(item => {
+        catalog += `
+            <section class="item">
+                <h2>${item.name}</h2>
+                <p class="price">$${item.price}</p>
+                <div class="controls">
+                    <button>+</button>
+                    <p class="quantity">0</p>
+                    <button>-</button>
+                </div>
+            </section>
+        `
+    })
+
+    document.querySelector("main").innerHTML = catalog
+}
+
+renderCatalog()
