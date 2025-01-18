@@ -15,11 +15,20 @@ checkoutBtn.addEventListener("click", checkout)
 
 // ⬇️ EVENT HANDLERS ⬇️
 
-function itemCount(id) {
+function itemCount(id, operation) {
     let selectedItem = inventory.filter(function(inventoryItem) {
         return inventoryItem.id === id
     })
-    selectedItem[0].count = selectedItem[0].count + 1
+
+    if (operation === "add") {
+        selectedItem[0].count = selectedItem[0].count + 1
+    } else {
+        selectedItem[0].count = selectedItem[0].count - 1
+        if (selectedItem[0].count < 0) {
+            selectedItem[0].count = 0
+        }
+    }
+
     console.log(id)
     console.log(selectedItem)
 }
@@ -61,9 +70,9 @@ function renderCatalog() {
                     <p class="price">$${item.price}</p>
                 </div>
                 <div class="controls">
-                    <button id="add-${item.id}" onclick={itemCount(${item.id})}>+</button>
+                    <button id="add-${item.id}" onclick="itemCount(${item.id}, 'add')">+</button>
                     <p id="qty-${item.id}" class="quantity">${item.count}</p>
-                    <button id="sub-${item.id}">-</button>
+                    <button id="sub-${item.id}" onclick="itemCount(${item.id}, 'sub')">-</button>
                 </div>
             </section>
         `
