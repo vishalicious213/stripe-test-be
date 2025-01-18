@@ -52,9 +52,9 @@ function renderCatalog() {
                     <p class="price">$${item.price}</p>
                 </div>
                 <div class="controls">
-                    <button>+</button>
-                    <p class="quantity">0</p>
-                    <button>-</button>
+                    <button id="add-${item.id}">+</button>
+                    <p id="qty-${item.id}" class="quantity">0</p>
+                    <button id="sub-${item.id}">-</button>
                 </div>
             </section>
         `
