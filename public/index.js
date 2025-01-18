@@ -19,7 +19,9 @@ function itemCount(id) {
     let selectedItem = inventory.filter(function(inventoryItem) {
         return inventoryItem.id === id
     })
-    console.log(id, selectedItem)
+    selectedItem[0].count = selectedItem[0].count + 1
+    console.log(id)
+    console.log(selectedItem)
 }
 
 function checkout() {
