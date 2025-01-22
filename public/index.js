@@ -1,4 +1,5 @@
 const checkoutBtn = document.querySelector("#checkoutBtn")
+const cartBtn = document.querySelector("#cartBtn")
 
 const inventory = [
     { id: 1, price: 100, count: 0, name: "One hundred" },
@@ -12,6 +13,8 @@ const inventory = [
 // ⬇️ EVENT LISTENERS ⬇️
 
 checkoutBtn.addEventListener("click", checkout)
+
+cartBtn.addEventListener("click", toggleCart)
 
 // ⬇️ EVENT HANDLERS ⬇️
 
@@ -58,6 +61,10 @@ function checkout() {
     }).catch(e => {
         console.error(e.error)
     })
+}
+
+function toggleCart() {
+    console.log("cart clicked")
 }
 
 // ⬇️ RENDER FUNCTIONS ⬇️
