@@ -81,7 +81,7 @@ function renderCatalog() {
         `
     })
 
-    document.querySelector("main").innerHTML = catalog
+    document.querySelector(".catalog").innerHTML = catalog
 }
 
 renderCatalog()

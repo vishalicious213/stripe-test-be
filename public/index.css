@@ -4,7 +4,13 @@
     box-sizing: border-box;
 }
 
-main {
+button {
+    width: 5rem;
+}
+
+/* CATALOG */
+
+.catalog {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -37,4 +43,11 @@ main {
 .controls button {
     margin: .5rem;
     width: 2rem;
+}
+
+/* CART */
+
+nav {
+    text-align: right;
+    margin: 0 1rem;
 }
