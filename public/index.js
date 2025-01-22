@@ -65,24 +65,26 @@ function checkout() {
 
 function toggleCart() {
     const cart = document.getElementById("cart")
+    const cartContents = document.getElementById("cart-contents")
     cart.classList.toggle("hide")
-    cart.innerHTML = ""
+    cartContents.innerHTML = ""
 
     let cartItems = inventory.filter(function(cartItem) {
         return cartItem.count > 0
     })
 
-    console.log(cartItems)
+    // console.log(cartItems)
 
     const itemsToRender = cartItems.map(item => `
         <div class="cart-item">
             <p>${item.name}</p>
-            <p>${item.count}</p>
-            <p>${item.price}</p>
+            <p>${item.count} X </p>
+            <p>${item.price} = </p>
+            <p>${item.price * item.count}</p>
         </div>
-    `)
+    `).join("")
 
-    cart.innerHTML = itemsToRender
+    cartContents.innerHTML += itemsToRender
 }
 
 // ⬇️ RENDER FUNCTIONS ⬇️
