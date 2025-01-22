@@ -64,7 +64,11 @@ function checkout() {
 }
 
 function toggleCart() {
-    console.log("cart clicked")
+    let cartItems = inventory.filter(function(cartItem) {
+        return cartItem.count > 0
+    })
+
+    console.log(cartItems)
 }
 
 // ⬇️ RENDER FUNCTIONS ⬇️
