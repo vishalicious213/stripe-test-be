@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+.hide {
+    visibility: hidden;
+}
+
 button {
     width: 5rem;
 }
@@ -56,4 +60,9 @@ nav {
     outline: 1px solid red;
     margin: 1rem;
     padding: 1rem;
+}
+
+.cart-item {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
 }

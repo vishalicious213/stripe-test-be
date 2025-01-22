@@ -35,8 +35,8 @@ function itemCount(id, operation) {
         selectedItemQty.textContent = selectedItem[0].count
     }
 
-    console.log(id)
-    console.log(selectedItem)
+    // console.log(id)
+    // console.log(selectedItem)
 }
 
 function checkout() {
@@ -64,11 +64,25 @@ function checkout() {
 }
 
 function toggleCart() {
+    const cart = document.getElementById("cart")
+    cart.classList.toggle("hide")
+    cart.innerHTML = ""
+
     let cartItems = inventory.filter(function(cartItem) {
         return cartItem.count > 0
     })
 
     console.log(cartItems)
+
+    const itemsToRender = cartItems.map(item => `
+        <div class="cart-item">
+            <p>${item.name}</p>
+            <p>${item.count}</p>
+            <p>${item.price}</p>
+        </div>
+    `)
+
+    cart.innerHTML = itemsToRender
 }
 
 // ⬇️ RENDER FUNCTIONS ⬇️
