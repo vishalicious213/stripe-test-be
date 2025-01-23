@@ -1,5 +1,6 @@
 const checkoutBtn = document.querySelector("#checkoutBtn")
 const cartBtn = document.querySelector("#cartBtn")
+let itemsForStripe = []
 
 const inventory = [
     { id: 1, price: 100, count: 0, name: "One hundred" },
@@ -40,7 +41,7 @@ function itemCount(id, operation) {
 }
 
 function checkout() {
-    console.log("Checkout")
+    // console.log("Checkout")
 
     fetch("/create-checkout-session", {
         method: "POST",
@@ -48,10 +49,7 @@ function checkout() {
             "Content-Type": "application/json"
         },
         body: JSON.stringify({
-            items: [
-                { id: 1, quantity: 3},
-                { id: 2, quantity: 1},
-            ]
+            items: itemsForStripe
         })
     }).then(res => {
         if (res.ok) return res.json()
@@ -74,6 +72,10 @@ function toggleCart() {
         return cartItem.count > 0
     })
 
+    let sendToStripe = cartItems.map(function(cartItem) {
+        return {id: cartItem.id, quantity: cartItem.count}
+    })
+
     // console.log(cartItems)
 
     const itemsToRender = cartItems.map(item => `
@@ -89,6 +91,8 @@ function toggleCart() {
 
     cartContents.innerHTML += itemsToRender
     total.innerText = `Total: $${totalCost}`
+    itemsForStripe = sendToStripe
+    // console.log(itemsForStripe)
 }
 
 // ⬇️ RENDER FUNCTIONS ⬇️
