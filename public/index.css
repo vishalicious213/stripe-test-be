@@ -62,7 +62,28 @@ nav {
     padding: 1rem;
 }
 
-.cart-item {
+#cart-contents {
+    margin-bottom: 1rem;
+}
+
+.cart-headers {
+    text-align: center;
+    border-bottom: 1px solid lightgray;
+    margin-bottom: .25rem;
+    padding-bottom: .25rem;
+}
+
+.cart-item, .cart-headers {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr;
+    grid-template-columns: 3fr .75fr 1.25fr 1fr;
+    font-size: .9rem;
+}
+
+.cart-item p {
+    border-bottom: 1px solid lightgray;
+}
+
+.price-detail {
+    text-align: center;
+    border-left: 1px solid lightgray;
 }

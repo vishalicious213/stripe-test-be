@@ -78,9 +78,9 @@ function toggleCart() {
     const itemsToRender = cartItems.map(item => `
         <div class="cart-item">
             <p>${item.name}</p>
-            <p>${item.count} X </p>
-            <p>${item.price} = </p>
-            <p>${item.price * item.count}</p>
+            <p class="price-detail">${item.count}</p>
+            <p class="price-detail">$${item.price}</p>
+            <p class="price-detail">$${item.price * item.count}</p>
         </div>
     `).join("")
 
