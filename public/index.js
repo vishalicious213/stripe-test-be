@@ -66,6 +66,7 @@ function checkout() {
 function toggleCart() {
     const cart = document.getElementById("cart")
     const cartContents = document.getElementById("cart-contents")
+    const total = document.getElementById("total")
     cart.classList.toggle("hide")
     cartContents.innerHTML = ""
 
@@ -84,7 +85,10 @@ function toggleCart() {
         </div>
     `).join("")
 
+    const totalCost = cartItems.reduce((total, item) => total + (item.count * item.price), 0)
+
     cartContents.innerHTML += itemsToRender
+    total.innerText = `Total: $${totalCost}`
 }
 
 // ⬇️ RENDER FUNCTIONS ⬇️
